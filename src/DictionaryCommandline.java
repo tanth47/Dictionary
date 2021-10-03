@@ -26,3 +26,8 @@ public class DictionaryCommandline extends Dictionary {
     }
 }
 
+class test {
+    public static void main(String[] args) {
+        DictionaryCommandline a= new DictionaryCommandline();
+    }
+}
