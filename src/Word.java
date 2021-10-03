@@ -4,7 +4,7 @@ public class Word {
 
     /**
      * constructor for class Word.
-     * @author Kyoraku
+     * @author kyoraku
      * @param word_target1
      * @param word_explain1
      */
