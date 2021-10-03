@@ -1,5 +1,6 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Dictionary {
-    List<Word> word = new List<Word>() {};
+    public List<Word> words = new ArrayList<>(); // list of words
 }
