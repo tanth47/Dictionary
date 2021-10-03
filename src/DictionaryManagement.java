@@ -6,16 +6,19 @@ public class DictionaryManagement extends Dictionary{
 
     /**
      * insert new words from commandline.
-     * @author kyoraku
+     * @author Kyoraku
      */
     public void insertFromCommandline() {
-        Dictionary newDictionary = null; // new dictionary
         Scanner input = new Scanner(System.in); // input from commandline
         int numberOfWords = input.nextInt(); // number of words
 
+        input.nextLine();
         for (int i = 0; i < numberOfWords; ++i) {
-            Word newWord = new Word(input.nextLine(), input.nextLine());
-            newDictionary.words.add(newWord);
+            String word_target = input.nextLine();
+            String word_explain = input.nextLine();
+            Word newWord = new Word(word_target, word_explain);
+            words.add(newWord);
+            explain.put(word_target, word_explain);
         }
     }
 
@@ -24,7 +27,7 @@ public class DictionaryManagement extends Dictionary{
      * @author Taaan
      */
     public void insertFromFile() {
-        File file = new File("D:/Documents/OOP/Dictionary/data/dictionaries.txt");
+        File file = new File("./data/dictionaries.txt");
         try {
             Scanner sc = new Scanner(file);
             while (sc.hasNextLine()) {
@@ -44,6 +47,7 @@ public class DictionaryManagement extends Dictionary{
                     }
                 }
                 words.add(new Word(word_target, word_explain));
+                explain.put(word_target, word_explain);
             }
         } catch (FileNotFoundException ex) {}
 
@@ -53,11 +57,13 @@ public class DictionaryManagement extends Dictionary{
             System.out.println(++wordCount + "\t| " + i.word_target + "\t\t| " + i.word_explain);
         }
     }
-}
 
-class test {
+class test1 {
     public static void main(String[] args) {
-        DictionaryManagement a= new DictionaryManagement();
-        a.insertFromFile();
+        DictionaryManagement a = new DictionaryManagement();
+//        a.insertFromFile();
+        a.insertFromCommandline();
+        DictionaryCommandline txz = new DictionaryCommandline();
+        txz.showAllWords();
     }
 }
