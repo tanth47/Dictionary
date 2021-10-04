@@ -4,12 +4,12 @@ public class Word {
 
     /**
      * constructor for class Word.
-     * @author kyoraku
-     * @param word_target1
-     * @param word_explain1
+     * @author Kyoraku
+     * @param target
+     * @param definition
      */
-    public Word(String word_target1, String word_explain1) {
-        word_target = word_target1;
-        word_explain = word_explain1;
+    public Word(String target, String definition) {
+        word_target = target;
+        word_explain = definition;
     }
 }

@@ -1,12 +1,14 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class DictionaryManagement extends Dictionary{
-
     /**
      * insert new words from commandline.
-     * @author kyoraku
+     * @author Kyoraku
      */
     public void insertFromCommandline() {
         Scanner input = new Scanner(System.in); // input from commandline
@@ -14,14 +16,11 @@ public class DictionaryManagement extends Dictionary{
 
         input.nextLine();
         for (int i = 0; i < numberOfWords; ++i) {
-            String target = input.nextLine();
-            String definition = input.nextLine();
-            target = target.toLowerCase();
-            definition = definition.toLowerCase();
+            String target = input.nextLine().toLowerCase();
+            String definition = input.nextLine().toLowerCase();
             Word newWord = new Word(target, definition);
             words.add(newWord);
             explain.put(target, definition);
-            fixTrie(target, true);
         }
     }
 
@@ -76,13 +75,24 @@ public class DictionaryManagement extends Dictionary{
         if(explain.containsKey(target)) {
             System.out.println(explain.get(target));
         }
-        else System.out.println("Khong tim thay trong tu dien :(");
+        else System.out.println("Khong tim thay trong tu dien 🙁");
+    }
+
+    /**
+     * export word data to file.
+     * @author Kyoraku
+     */
+    public void dictionaryExportToFile() {
+        exportToFile();
     }
 }
 
 class test {
     public static void main(String[] args) {
-        DictionaryManagement a= new DictionaryManagement();
-        a.insertFromFile();
+        DictionaryManagement a = new DictionaryManagement();
+        a.insertFromCommandline();
+        DictionaryCommandline txz = new DictionaryCommandline();
+        txz.showAllWords();
+        a.dictionaryExportToFile();
     }
 }
