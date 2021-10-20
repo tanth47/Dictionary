@@ -16,11 +16,12 @@ public class DictionaryManagement extends Dictionary{
 
         input.nextLine();
         for (int i = 0; i < numberOfWords; ++i) {
-            String target = input.nextLine().toLowerCase();
-            String definition = input.nextLine().toLowerCase();
-            Word newWord = new Word(target, definition);
+            String target = input.nextLine().toLowerCase(); // english word
+            String definition = input.nextLine().toLowerCase(); // vietnamese word
+            Word newWord = new Word(target, definition); // this word
             words.add(newWord);
             explain.put(target, definition);
+            fixTrie(target, true);
         }
     }
 
@@ -85,14 +86,70 @@ public class DictionaryManagement extends Dictionary{
     public void dictionaryExportToFile() {
         exportToFile();
     }
+
+    /**
+     * fix data.
+     * @author Kyoraku
+     */
+    public void fixData() {
+        Scanner input = new Scanner(System.in); // input from commandline
+
+        System.out.println("Fix du lieu:" + "\n" + "1. Them du lieu" + "\n");
+        System.out.println("2. Xoa du lieu" + "\n" + "3. Sua du lieu" + "\n");
+        int type = input.nextInt(); // type of fixing data
+
+        switch (type) {
+            case 1:
+                System.out.println("Nhap tu can them:" + "\n");
+                String target = input.nextLine().toLowerCase(); // english word
+
+                System.out.println("Nhap nghia cua tu vua them: " + "\n");
+                String definition = input.nextLine().toLowerCase(); // vietnamese word
+                Word newWord = new Word(target, definition); // this word
+                words.add(newWord);
+                explain.put(target, definition);
+                fixTrie(target, true);
+            case 2:
+                System.out.println("Nhap tu can xoa:" + "\n");
+                String target1 = input.nextLine().toLowerCase(); // english word
+
+                words.removeIf((Word temp) -> {
+                    boolean check = (temp.word_target == target1); // check word
+
+                    return check;
+                });
+                explain.remove(target1);
+                fixTrie(target1, false);
+            case 3:
+                System.out.println("Nhap tu can sua:" + "\n");
+                String target2 = input.nextLine().toLowerCase(); // english word
+
+                System.out.println("Nhap nghia cua tu vua sua: " + "\n");
+                String definition1 = input.nextLine().toLowerCase(); // vietnamese word
+                Word newWord1 = new Word(target2, definition1); // this word
+
+                words.removeIf((Word temp) -> {
+                    boolean check = (temp.word_target == target2); // check word
+
+                    return check;
+                });
+                explain.remove(target2);
+                fixTrie(target2, false);
+                words.add(newWord1);
+                explain.put(target2, definition1);
+                fixTrie(target2, true);
+            default:
+                System.out.println("Ban da dua ra lua chon loi!");
+        }
+    }
 }
 
 class test {
     public static void main(String[] args) {
-        DictionaryManagement a = new DictionaryManagement();
-        a.insertFromCommandline();
-        DictionaryCommandline txz = new DictionaryCommandline();
-        txz.showAllWords();
-        a.dictionaryExportToFile();
+//        DictionaryManagement a = new DictionaryManagement();
+//        a.insertFromCommandline();
+//        DictionaryCommandline txz = new DictionaryCommandline();
+//        txz.showAllWords();
+//        a.dictionaryExportToFile();
     }
 }
