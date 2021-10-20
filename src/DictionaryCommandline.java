@@ -44,6 +44,9 @@ public class DictionaryCommandline extends Dictionary {
      * @param id int id
      */
     public void printAllWords(String prefix, String suffix, int id) {
+        if (check[id]) {
+            System.out.println(prefix + suffix);
+        }
         for (char c = 'a'; c <= 'z'; ++c) {
             int change = c - 'a';
 
@@ -51,9 +54,6 @@ public class DictionaryCommandline extends Dictionary {
                 c = 27;
             }
             if (nxt[id][c] > 0) {
-                if (check[id]) {
-                    System.out.println(prefix + suffix);
-                }
                 printAllWords(prefix, suffix + c, nxt[id][c]);
             }
         }
