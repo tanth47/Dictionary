@@ -42,10 +42,14 @@ public class DictionaryCommandline extends Dictionary {
      * @author Kyoraku
      * @param id int id of node in trie tree
      * @param current String current string
+     * @param prefix String searching string
      */
-    public void dfs(int id, String current) {
-        boolean ok = false; // check the end of string
+    public void dfs(int id, String current, String prefix) {
+        if (current == prefix) {
+            String suffix = ""; // suffix string
 
+            printAllWords(prefix, suffix, id);
+        }
         for (char c = 'a'; c <= 'z'; ++c) {
             int change = c - 'a'; // change to ascii
 
@@ -53,14 +57,35 @@ public class DictionaryCommandline extends Dictionary {
                 c = 27;
             }
             if (nxt[id][c] > 0) {
-                ok = true;
                 current += c;
-                dfs(nxt[id][c], current);
+                dfs(nxt[id][c], current, prefix);
                 current = current.substring(0, current.length() - 1);
             }
         }
+    }
+
+    /**
+     * print all words with prefix.
+     * @param prefix String prefix
+     * @param suffix String suffix
+     * @param id int id
+     */
+    public void printAllWords(String prefix, String suffix, int id) {
+        boolean ok = false; // check the end of string
+
+        for (char c = 'a'; c <= 'z'; ++c) {
+            int change = c - 'a';
+
+            if (c == ' ') {
+                c = 27;
+            }
+            if (nxt[id][c] > 0) {
+                ok = true;
+                printAllWords(prefix, suffix + c, nxt[id][c]);
+            }
+        }
         if (!ok) {
-            System.out.println(current);
+            System.out.println(prefix + suffix);
         }
     }
 
@@ -82,7 +107,7 @@ public class DictionaryCommandline extends Dictionary {
             }
             id = nxt[id][change];
         }
-        dfs(id, searchingWord);
+        dfs(id, searchingWord, searchingWord);
     }
 }
 
