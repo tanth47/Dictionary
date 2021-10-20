@@ -38,41 +38,12 @@ public class DictionaryCommandline extends Dictionary {
     }
 
     /**
-     * recursive depth-first search in trie tree.
-     * @author Kyoraku
-     * @param id int id of node in trie tree
-     * @param current String current string
-     * @param prefix String searching string
-     */
-    public void dfs(int id, String current, String prefix) {
-        if (current == prefix) {
-            String suffix = ""; // suffix string
-
-            printAllWords(prefix, suffix, id);
-        }
-        for (char c = 'a'; c <= 'z'; ++c) {
-            int change = c - 'a'; // change to ascii
-
-            if (c == ' ') {
-                c = 27;
-            }
-            if (nxt[id][c] > 0) {
-                current += c;
-                dfs(nxt[id][c], current, prefix);
-                current = current.substring(0, current.length() - 1);
-            }
-        }
-    }
-
-    /**
-     * print all words with prefix.
+     * print all words with prefix using depth-first search.
      * @param prefix String prefix
      * @param suffix String suffix
      * @param id int id
      */
     public void printAllWords(String prefix, String suffix, int id) {
-        boolean ok = false; // check the end of string
-
         for (char c = 'a'; c <= 'z'; ++c) {
             int change = c - 'a';
 
@@ -80,12 +51,11 @@ public class DictionaryCommandline extends Dictionary {
                 c = 27;
             }
             if (nxt[id][c] > 0) {
-                ok = true;
+                if (check[id]) {
+                    System.out.println(prefix + suffix);
+                }
                 printAllWords(prefix, suffix + c, nxt[id][c]);
             }
-        }
-        if (!ok) {
-            System.out.println(prefix + suffix);
         }
     }
 
@@ -107,7 +77,7 @@ public class DictionaryCommandline extends Dictionary {
             }
             id = nxt[id][change];
         }
-        dfs(id, searchingWord, searchingWord);
+        printAllWords(searchingWord, "", id);
     }
 }
 
