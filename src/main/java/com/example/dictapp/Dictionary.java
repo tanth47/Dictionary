@@ -63,7 +63,7 @@ public class Dictionary {
      * @author Taaan
      */
     public void getData() {
-        File file = new File("D:\\Documents\\OOP\\DictApp\\src\\main\\data\\data.txt");
+        File file = new File(".\\src\\main\\data\\data.txt");
         try {
           //  System.out.println("tannnnnn");
            // System.out.println(cnt);

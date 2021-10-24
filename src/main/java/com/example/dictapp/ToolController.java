@@ -90,4 +90,10 @@ public class ToolController extends PrimaryController {
             throw new IllegalStateException("Cannot find voice: kevin16");
         }
     }
+
+    public void apiButton() throws Exception {
+        String temp = Translator.callUrlAndParseResult("en", "vi", searching_word.getText());
+
+        Definition.setText(temp);
+    }
 }

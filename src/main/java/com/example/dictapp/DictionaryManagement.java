@@ -11,6 +11,7 @@ public class DictionaryManagement extends Dictionary{
 
     /**
      * print all words with prefix using depth-first search.
+     * @author Kyoraku
      * @param prefix String prefix
      * @param suffix String suffix
      * @param id int id
@@ -20,7 +21,8 @@ public class DictionaryManagement extends Dictionary{
             result.add(prefix + suffix);
         }
         for (int c = 0; c <= 27; ++c) {
-            char t = (char)('a' + c);
+            char t = (char)('a' + c); // character
+
             if (c == 27) {
                 t = ' ';
             }
