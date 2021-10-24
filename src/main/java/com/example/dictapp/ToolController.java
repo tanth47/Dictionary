@@ -1,5 +1,6 @@
 package com.example.dictapp;
 
+import com.sun.speech.freetts.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -70,5 +71,23 @@ public class ToolController extends PrimaryController {
     public void deleteWord() {
         Management.deleteWord(wordDelete.getText().toLowerCase());
         popUp.close();
+    }
+
+    public void TextToSpeech() {
+        VoiceManager freeVM;
+        Voice voice;
+        System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
+        voice = VoiceManager.getInstance().getVoice("kevin16");
+        if (voice != null) {
+            voice.allocate();// Allocating Voice
+            try {
+                voice.speak(searching_word.getText());// Calling speak() method
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+
+        } else {
+            throw new IllegalStateException("Cannot find voice: kevin16");
+        }
     }
 }

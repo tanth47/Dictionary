@@ -5,6 +5,10 @@ module com.example.dictapp {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
+    requires cmu.time.awb;
+    requires cmu.us.kal;
+    requires en.us;
+    requires freetts;
 
     opens com.example.dictapp to javafx.fxml;
     exports com.example.dictapp;
