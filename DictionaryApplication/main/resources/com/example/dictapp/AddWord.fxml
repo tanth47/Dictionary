@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="202.0" prefWidth="518.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dictapp.ToolController">
+   <children>
+      <Button layoutX="304.0" layoutY="157.0" mnemonicParsing="false" onAction="#addWord" prefHeight="25.0" prefWidth="75.0" text="OK" />
+      <Label layoutX="16.0" layoutY="24.0" text="English Word:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="16.0" layoutY="59.0" text="Vietnamese Word:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="16.0" layoutY="94.0" text="Phonetic:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="404.0" layoutY="157.0" mnemonicParsing="false" onAction="#closeStage" prefHeight="25.0" prefWidth="75.0" text="Cancel" />
+      <TextField fx:id="englishWord" layoutX="185.0" layoutY="22.0" prefHeight="25.0" prefWidth="316.0" promptText="English Word" />
+      <TextField fx:id="vietnameseWord" layoutX="184.0" layoutY="57.0" prefHeight="25.0" prefWidth="316.0" promptText="Vietnamese Word" />
+      <TextField fx:id="phonetic" layoutX="185.0" layoutY="92.0" prefHeight="25.0" prefWidth="316.0" promptText="form /.../" />
+   </children>
+</Pane>
