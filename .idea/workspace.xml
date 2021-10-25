@@ -7,25 +7,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54f75a13-6d38-4233-8bc2-81d193bb5560" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DictApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DictApp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictapp/Dictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictapp/Dictionary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictapp/DictionaryManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictapp/DictionaryManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictapp/ToolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictapp/ToolController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/dictapp/Word.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/dictapp/Word.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictapp/AddWord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/dictapp/AddWord.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/dictapp/DeleteWord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/dictapp/DeleteWord.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dictapp/AddWord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dictapp/AddWord.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dictapp/DeleteWord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dictapp/DeleteWord.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dictapp/Dictionary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dictapp/Dictionary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dictapp/DictionaryManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dictapp/DictionaryManagement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dictapp/PrimaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dictapp/PrimaryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/dictapp/ToolController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/dictapp/ToolController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-    </list>
+    <list default="true" id="54f75a13-6d38-4233-8bc2-81d193bb5560" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,10 +46,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/lib/json-20210307.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3229885" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager" selected="Application.DictionaryApplication">
     <configuration default="true" type="Applet" factoryName="Applet">

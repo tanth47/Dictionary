@@ -1,31 +1,40 @@
 package com.example.dictapp;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.LinkedList;
-import java.util.Scanner;
 
-public class DictionaryManagement extends Dictionary{
+import java.util.LinkedList;
+
+public class DictionaryManagement extends Dictionary {
     public DictionaryManagement() {
         super();
     }
 
     /**
      * print all words with prefix using depth-first search.
-     * @author Kyoraku
+     *
      * @param prefix String prefix
      * @param suffix String suffix
-     * @param id int id
+     * @param id     int id
+     * @author Kyoraku
      */
     public void printAllWords(LinkedList<String> result, String prefix, String suffix, int id) {
         if (check[id]) {
             result.add(prefix + suffix);
         }
         for (int c = 0; c <= 27; ++c) {
-            char t = (char)('a' + c); // character
+            char t = (char) ('a' + c); // character
 
             if (c == 27) {
                 t = ' ';
             }
+            if (c == 28) {
+                t = '-';
+            }
+            if (c == 29) {
+                t = '\'';
+            }
+            if (c == 30) {
+                t = '.';
+            }
+
             if (nxt[id][c] > 0) {
                 printAllWords(result, prefix, suffix + t, nxt[id][c]);
             }
@@ -34,8 +43,9 @@ public class DictionaryManagement extends Dictionary{
 
     /**
      * search words.
-     * @author Kyoraku
+     *
      * @param searchingWord searchingWord
+     * @author Kyoraku
      */
     public LinkedList<String> dictionarySearcher(String searchingWord) {
         LinkedList<String> result = new LinkedList<>();
@@ -47,7 +57,16 @@ public class DictionaryManagement extends Dictionary{
             if (c == ' ') {
                 change = 27;
             }
-            if(nxt[id][change] > 0) {
+            if (c == '-') {
+                change = 28;
+            }
+            if (c == '\'') {
+                change = 29;
+            }
+            if (c == '.') {
+                change = 30;
+            }
+            if (nxt[id][change] > 0) {
                 id = nxt[id][change];
             } else {
                 return result;
@@ -59,11 +78,12 @@ public class DictionaryManagement extends Dictionary{
 
     /**
      * tra cuu tu.
+     *
      * @author Taaan
      */
     public String dictionaryLookup(String target) {
         target = target.toLowerCase();
-        if(explain.containsKey(target)) {
+        if (explain.containsKey(target)) {
             return explain.get(target);
         }
         return "Khong tim thay trong tu dien :(";
@@ -71,6 +91,7 @@ public class DictionaryManagement extends Dictionary{
 
     /**
      * fix data.
+     *
      * @author Kyoraku
      */
     public void addWord(String target, String definition) {
@@ -81,44 +102,24 @@ public class DictionaryManagement extends Dictionary{
     }
 
     public void deleteWord(String target) {
+
         words.removeIf((Word temp) -> {
-            boolean check = (temp.word_target == target); // check word
+            boolean check = (temp.word_target.equals(target)); // check word
             return check;
         });
         explain.remove(target);
         fixTrie(target, false);
     }
-    /*
-    public void fixData() {
 
+    public void editWord(String target, String definition) {
+        Word newWord1 = new Word(target, definition); // this word
 
-        switch (type) {
-            case 2:
-                System.out.println("Nhap tu can xoa:" + "\n");
-                String target1 = input.nextLine().toLowerCase(); // english word
-
-
-            case 3:
-                System.out.println("Nhap tu can sua:" + "\n");
-                String target2 = input.nextLine().toLowerCase(); // english word
-
-                System.out.println("Nhap nghia cua tu vua sua: " + "\n");
-                String definition1 = input.nextLine().toLowerCase(); // vietnamese word
-                Word newWord1 = new Word(target2, definition1); // this word
-
-                words.removeIf((Word temp) -> {
-                    boolean check = (temp.word_target == target2); // check word
-
-                    return check;
-                });
-                explain.remove(target2);
-                fixTrie(target2, false);
-                words.add(newWord1);
-                explain.put(target2, definition1);
-                fixTrie(target2, true);
-            default:
-                System.out.println("Ban da dua ra lua chon loi!");
-        }
-    }*/
+        words.removeIf((Word temp) -> {
+            boolean check = (temp.word_target.equals(target)); // check word
+            return check;
+        });
+        words.add(newWord1);
+        explain.put(target, definition);
+    }
 }
 

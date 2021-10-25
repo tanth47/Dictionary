@@ -23,7 +23,7 @@ public class PrimaryController {
     @FXML
     Button add;
 
-    DictionaryManagement Management = new DictionaryManagement();
+    static DictionaryManagement Management = new DictionaryManagement();
 
     public void SuggestWord() {
        // Definition.setText("");

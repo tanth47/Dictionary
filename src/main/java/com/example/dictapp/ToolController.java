@@ -48,6 +48,15 @@ public class ToolController extends PrimaryController {
         popUp.setScene(scene);
         popUp.show();
     }
+    public void editWordScene(ActionEvent event) throws IOException {
+        popUp = new Stage();
+        popUp.initModality(Modality.APPLICATION_MODAL);
+        popUp.setTitle("Edit a word");
+        FXMLLoader fxmlLoader = new FXMLLoader(ToolController.class.getResource("EditWord.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        popUp.setScene(scene);
+        popUp.show();
+    }
 
     public void deleteWordScene(ActionEvent event) throws IOException {
         popUp = new Stage();
@@ -64,13 +73,36 @@ public class ToolController extends PrimaryController {
     }
 
     public void addWord() {
-        Management.addWord(englishWord.getText().toLowerCase(), vietnameseWord.getText().toLowerCase());
-        popUp.close();
+        if (Management.explain.containsKey(englishWord.getText().toLowerCase())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Word already exist!");
+            alert.showAndWait();
+        } else {
+            Management.addWord(englishWord.getText().toLowerCase(), vietnameseWord.getText().toLowerCase());
+            popUp.close();
+        }
+    }
+
+    public void editWord() {
+        if (!Management.explain.containsKey(englishWord.getText().toLowerCase())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Word doesn't exist!");
+            alert.showAndWait();
+        } else {
+            Management.editWord(englishWord.getText().toLowerCase(), vietnameseWord.getText().toLowerCase());
+            popUp.close();
+        }
     }
 
     public void deleteWord() {
-        Management.deleteWord(wordDelete.getText().toLowerCase());
-        popUp.close();
+        if (!Management.explain.containsKey(wordDelete.getText().toLowerCase())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Word doesn't exist!");
+            alert.showAndWait();
+        } else {
+            Management.deleteWord(wordDelete.getText().toLowerCase());
+            popUp.close();
+        }
     }
 
     public void TextToSpeech() {

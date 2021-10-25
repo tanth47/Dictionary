@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="117.0" prefWidth="518.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dictapp.ToolController">
+<Pane prefHeight="117.0" prefWidth="518.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.dictapp.ToolController">
    <children>
       <Button layoutX="284.0" layoutY="78.0" mnemonicParsing="false" onAction="#deleteWord" prefHeight="25.0" prefWidth="75.0" text="OK" />
       <Label layoutX="23.0" layoutY="25.0" text="Word to delete:">

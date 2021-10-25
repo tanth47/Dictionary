@@ -10,7 +10,6 @@ module com.example.dictapp {
     requires en.us;
     requires freetts;
     requires org.json;
-
     opens com.example.dictapp to javafx.fxml;
     exports com.example.dictapp;
 }
