@@ -114,7 +114,7 @@ public class ToolController extends PrimaryController {
             alert.setHeaderText("Word doesn't exist!");
             alert.showAndWait();
         } else {
-            Management.editWord(englishWord.getText().toLowerCase(), vietnameseWord.getText().toLowerCase());
+            Management.editWord(englishWord.getText().toLowerCase(), (phonetic.getText() + "\n" + vietnameseWord.getText()).toLowerCase());
             popUp.close();
         }
     }
