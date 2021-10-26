@@ -133,6 +133,7 @@ public class DictionaryManagement extends Dictionary {
                 words.add(newWord);
                 explain.put(target, definition);
                 fixTrie(target, true);
+                break;
             case 2:
                 System.out.print("Nhap tu can xoa:" + "\n");
                 String target1 = input.nextLine().toLowerCase(); // english word
@@ -147,6 +148,7 @@ public class DictionaryManagement extends Dictionary {
                 });
                 explain.remove(target1);
                 fixTrie(target1, false);
+                break;
             case 3:
                 System.out.print("Nhap tu can sua:" + "\n");
                 String target2 = input.nextLine().toLowerCase(); // english word
@@ -168,6 +170,7 @@ public class DictionaryManagement extends Dictionary {
                 words.add(newWord1);
                 explain.put(target2, definition1);
                 fixTrie(target2, true);
+                break;
             case 4:
                 return;
             default:
