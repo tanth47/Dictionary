@@ -47,7 +47,7 @@ public class DictionaryApplication {
 
     public static void intro() {
         System.out.println("Chao mung ban den voi tu dien!");
-        System.out.println("Moih nap lua chon!");
+        System.out.println("Moi nhap lua chon!");
         System.out.println("1.Look Up");
         System.out.println("2.Search all the relevant word");
         System.out.println("3.Show all words");

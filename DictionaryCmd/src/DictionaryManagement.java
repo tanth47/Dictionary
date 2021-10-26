@@ -22,9 +22,14 @@ public class DictionaryManagement extends Dictionary {
         for (int i = 0; i < numberOfWords; ++i) {
             System.out.print("Tu tieng anh:");
             String target = input.nextLine().toLowerCase(); // english word
-            System.out.println("Tu tieng viet:");
+            System.out.print("Tu tieng viet:");
             String definition = input.nextLine().toLowerCase(); // vietnamese word
+            definition += '\n';
             Word newWord = new Word(target, definition); // this word
+            if (explain.containsKey(target)) {
+                System.out.println(target + " already exist");
+                continue;
+            }
             words.add(newWord);
             explain.put(target, definition);
             fixTrie(target, true);
@@ -58,6 +63,11 @@ public class DictionaryManagement extends Dictionary {
                 }
                 target = target.toLowerCase();
                 definition = definition.toLowerCase();
+                definition += '\n';
+                if (explain.containsKey(target)) {
+                    System.out.println(target + " already exist");
+                    continue;
+                }
                 words.add(new Word(target, definition));
                 explain.put(target, definition);
                 fixTrie(target, true);
@@ -103,12 +113,11 @@ public class DictionaryManagement extends Dictionary {
      */
     public void fixData() {
         Scanner input = new Scanner(System.in); // input from commandline
-
         System.out.print("Fix du lieu:" + "\n" + "1. Them du lieu" + "\n");
         System.out.print("2. Xoa du lieu" + "\n" + "3. Sua du lieu" + "\n");
-        System.out.print("4.exit" + "\n");
+        System.out.print("4. Exit" + "\n");
         int type = input.nextInt(); // type of fixing data
-
+        input.nextLine();
         switch (type) {
             case 1:
                 System.out.print("Nhap tu can them:" + "\n");
@@ -117,13 +126,20 @@ public class DictionaryManagement extends Dictionary {
                 System.out.print("Nhap nghia cua tu vua them: " + "\n");
                 String definition = input.nextLine().toLowerCase(); // vietnamese word
                 Word newWord = new Word(target, definition); // this word
+                if (explain.containsKey(target)) {
+                    System.out.println(target + " already exist");
+                    break;
+                }
                 words.add(newWord);
                 explain.put(target, definition);
                 fixTrie(target, true);
             case 2:
                 System.out.print("Nhap tu can xoa:" + "\n");
                 String target1 = input.nextLine().toLowerCase(); // english word
-
+                if (!explain.containsKey(target1)) {
+                    System.out.println(target1 + " does not exist");
+                    break;
+                }
                 words.removeIf((Word temp) -> {
                     boolean check = (temp.word_target == target1); // check word
 
@@ -138,7 +154,10 @@ public class DictionaryManagement extends Dictionary {
                 System.out.print("Nhap nghia cua tu vua sua: " + "\n");
                 String definition1 = input.nextLine().toLowerCase(); // vietnamese word
                 Word newWord1 = new Word(target2, definition1); // this word
-
+                if (!explain.containsKey(target2)) {
+                    System.out.println(target2 + " does not exist");
+                    break;
+                }
                 words.removeIf((Word temp) -> {
                     boolean check = (temp.word_target == target2); // check word
 
