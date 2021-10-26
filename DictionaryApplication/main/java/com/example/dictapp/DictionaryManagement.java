@@ -19,7 +19,7 @@ public class DictionaryManagement extends Dictionary {
         if (check[id]) {
             result.add(prefix + suffix);
         }
-        for (int c = 0; c <= 27; ++c) {
+        for (int c = 0; c <= 30; ++c) {
             char t = (char) ('a' + c); // character
 
             if (c == 27) {
